@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - UppercaseApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "com.github.brianmmcclain.uppercase.UppercaseApplication",
+            "args": "",
+            "projectName": "uppercase"
+        }
+    ]
+}
