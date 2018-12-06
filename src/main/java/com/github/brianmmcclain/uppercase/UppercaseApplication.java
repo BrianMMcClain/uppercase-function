@@ -11,7 +11,7 @@ public class UppercaseApplication {
 
 	@Bean
     public Function<String, String> uppercase() {
-		String pgUser = System.getProperty("PG_USER", "postgres");
+		String pgUser = System.getenv("PG_USER");
 		String pgPass = System.getProperty("PG_PASS", "defaultPass");
         return s -> s.toUpperCase() + " -- " + pgUser + "/" + pgPass;
     }
