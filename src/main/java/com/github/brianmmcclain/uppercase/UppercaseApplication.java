@@ -12,8 +12,12 @@ public class UppercaseApplication {
 
 	@Bean
     public Function<String, String> uppercase() {
-		String pgUser = Optional.of(System.getenv("PG_USER")).orElse("defaultUser");
-		String pgPass = Optional.of(System.getenv("PG_PASS")).orElse("defaultPass");
+
+		String pgUserEnv = System.getenv("PG_USER");
+		String pgPassEnv = System.getenv("PG_PASS");
+
+		String pgUser = (pgUserEnv == null) ? "defaultuser" : pgUserEnv;
+		String pgPass = (pgPassEnv == null) ? "defaultuser" : pgPassEnv;
 		
         return s -> s.toUpperCase() + " -- " + pgUser + "/" + pgPass;
     }
