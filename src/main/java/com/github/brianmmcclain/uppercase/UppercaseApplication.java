@@ -19,7 +19,7 @@ public class UppercaseApplication {
 		String pgUser = (pgUserEnv == null) ? "defaultuser" : pgUserEnv;
 		String pgPass = (pgPassEnv == null) ? "defaultuser" : pgPassEnv;
 		
-        return s -> s.toUpperCase() + " -- " + pgUser + "/" + pgPass;
+        return s -> s.toString().toUpperCase() + " -- " + pgUser + "/" + pgPass;
     }
 	public static void main(String[] args) {
 		SpringApplication.run(UppercaseApplication.class, args);
