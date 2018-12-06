@@ -1,5 +1,6 @@
 package com.github.brianmmcclain.uppercase;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 import org.springframework.boot.SpringApplication;
@@ -11,8 +12,9 @@ public class UppercaseApplication {
 
 	@Bean
     public Function<String, String> uppercase() {
-		String pgUser = System.getenv("PG_USER");
-		String pgPass = System.getProperty("PG_PASS", "defaultPass");
+		String pgUser = Optional.of(System.getenv("PG_USER")).orElse("defaultUser");
+		String pgPass = Optional.of(System.getenv("PG_PASS")).orElse("defaultPass");
+		
         return s -> s.toUpperCase() + " -- " + pgUser + "/" + pgPass;
     }
 	public static void main(String[] args) {
